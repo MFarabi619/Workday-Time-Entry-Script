@@ -15,5 +15,5 @@ is more of a pure webscraper that excels at parsing data. However the recent Sel
 - Enters hours into the 'Enter my Time' page.
 
 ## Planned Feautures:
-- Improved robustness by waiting until the image is found.
+- Improved robustness by waiting until the image is found rather than using the sleep() function, as a webpage could take any amount of time to load.
 - Prompt the user for hours worked per day. 
