@@ -17,8 +17,10 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Enters hours and clicks the 'Ok' button.
 - Clicks the 'Review' button and ends at the submit page.
 
-## Planned Feautures:
+## Release v1.0.0-alpha Features:
 - Improved robustness by waiting until the image is found rather than using the sleep() function, as a webpage could take any amount of time to load.
+
+## Planned Feautures:
 - Prompt the user for hours worked per day.
 - Make code more readable by separating helper functions to a different file.
 - Move the button images to a separate folder and import them into a file. Import from that file into the script.
