@@ -1,9 +1,7 @@
 # Author: Mumtahin Farabi
 
 import pyautogui
-import pyperclip
 import webbrowser
-import time
 from helper_functions import wait_until_loaded, tabEnter
 
 # Welcome message👋
@@ -13,9 +11,6 @@ print("Welcome to the Ciena Workday Time Entry Script!👋\n")
 def open_workday():
     # Open Workday in a new tab
     URL = 'https://wd5.myworkday.com/ciena/d/home.htmld'
-
-    # Copy the URL to the clipboard
-    pyperclip.copy(URL)
 
     # Open a browser tab with the URL
     webbrowser.open_new(URL)
@@ -31,7 +26,7 @@ def check_sign_in():
         pyautogui.click()
 
         pyautogui.alert("Please verify your Okta credentials so the script can continue. :)")
-        print("Please ensure that you're logged into Workday, hit enter when ready.")
+        print("Please ensure that you're logged into Workday, hit enter when you're on the Workday homepage.")
         input()
 
 def go_to_enter_time_page():
@@ -51,29 +46,7 @@ def go_to_enter_time_page():
     wait_until_loaded('images/quick_add_text.png')
     tabEnter(3)
 
-secs_between_keys = 0.05
 hours = str(8)
-
-# This function was supposed to find the day columns, and add the times. 
-# Unfortunately, OpenCV couldn't find the image matches. :(
-# def find_weekdays():
-    # weekdays = ['/images/weekdays/monday.png',
-    #             '/images/weekdays/tuesday.png',
-    #             '/images/weekdays/wednesday.png',
-    #             '/images/weekdays/thursday.png',
-    #             '/images/weekdays/friday.png']
-
-    # for day in weekdays:
-    #     # x, y = pyautogui.locateCenterOnScreen(day,region=(0, 277, 1623, 360), grayscale=True, confidence = 0.9)
-    #     x, y = pyautogui.locateCenterOnScreen(day, grayscale=True, confidence = 0.9)
-    #     pyautogui.moveTo(x,y+230)
-    #     pyautogui.click()
-    #     pyautogui.sleep(0.5)
-    #     pyautogui.press('tab', presses=2)
-    #     pyautogui.write(hours)
-    #     pyautogui.press('tab', presses=2)
-    #     pyautogui.press('enter')
-    #     pyautogui.sleep(0.5)
 
 def enter_time():
     pyautogui.press('tab', presses=13)
@@ -93,21 +66,7 @@ def enter_time():
     pyautogui.click()
 
 
-# Function to display mouse position, for testing purposes
-def mouse_position():
-    try:
-        while True:
-            # Get the current mouse position
-            x, y = pyautogui.position()
-            print('X:', x, 'Y:', y)
-            
-            # Sleep for a short period to reduce the number of messages printed
-            time.sleep(0.1)
-    except KeyboardInterrupt:
-        print('\nDone.')
-
 open_workday()
 check_sign_in()
 go_to_enter_time_page()
 enter_time()
-# mouse_position()

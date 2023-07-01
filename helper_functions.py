@@ -12,3 +12,16 @@ def tabEnter(count):
     pyautogui.press('tab', presses=count)
     pyautogui.press('enter')
     pyautogui.sleep(0.75)
+
+# Function to display mouse position, for testing purposes
+def mouse_position():
+    try:
+        while True:
+            # Get the current mouse position
+            x, y = pyautogui.position()
+            print('X:', x, 'Y:', y)
+            
+            # Sleep for a short period to reduce the number of messages printed
+            pyautogui.sleep(0.1)
+    except KeyboardInterrupt:
+        print('\nDone.')
