@@ -1,4 +1,7 @@
 # Workday Time Entry Script
+
+https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143-e3bc-4cc1-b2e4-269962adfced
+
 I initially attempted to automate the process of entering hours into the Workday Employee portal using PyAutoGUI, but ran into a variety of issues such as:
 
 - OpenCV failing to detecting small text.
