@@ -4,6 +4,7 @@ import pyautogui
 import pyperclip
 import webbrowser
 import time
+from helper_functions import wait_until_loaded, tabEnter
 
 # Welcome message👋
 print("Welcome to the Ciena Workday Time Entry Script!👋\n")
