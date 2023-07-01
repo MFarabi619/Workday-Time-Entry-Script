@@ -6,7 +6,9 @@ I initially attempted to automate the process of entering hours into the Workday
 - Slight UI changes throwing off tab-key and enter-press sequences.
 
 So I started looking into browser automation frameworks. I decided to move forward with Selenium as it is more robust with functionality to mimic complex user actions, whereas BeautifulSoup
-is more of a pure webscraper that excels at parsing data. However the recent Selenium version (4.10.0) has rendered pretty much every piece of documentation and youtube tutorial prior to June 7th, 2023 useless for my specific use case. So I've reverted back to PyAutoGUI.
+is more of a pure webscraper that excels at parsing data. 
+
+UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piece of documentation and youtube tutorial prior to June 7th, 2023 useless for my specific use case. So I've reverted back to PyAutoGUI.
 
 ## Features:
 - The script detects the default system browser of the user, and launches it with the workday login url.
