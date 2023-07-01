@@ -90,7 +90,6 @@ def enter_time():
     pyautogui.click()
     pyautogui.moveTo(
     wait_until_loaded('images/review_button.png'))
-    print('found review button')
     pyautogui.click()
 
 
