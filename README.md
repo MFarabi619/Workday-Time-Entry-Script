@@ -11,8 +11,11 @@ is more of a pure webscraper that excels at parsing data. However the recent Sel
 ## Features:
 - The script detects the default system browser of the user, and launches it with the workday login url.
 - Checks if the user is signed in or not. If not, then it clicks the 'Sign in' button and waits until the user is signed in.
-- Navigates to the 'All About Me' page, and clicks the 'Enter Time' button.
-- Enters hours into the 'Enter my Time' page.
+- Navigates to the hamburger menu, and clicks the 'Time' button.
+- Clicks the 'My Calendar' button. 
+- Clicks on 'Actions', then 'Quick Add'.
+- Enters hours and clicks the 'Ok' button.
+- Clicks the 'Review' button and ends at the submit page. 
 
 ## Planned Feautures:
 - Improved robustness by waiting until the image is found rather than using the sleep() function, as a webpage could take any amount of time to load.
