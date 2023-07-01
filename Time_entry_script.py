@@ -22,6 +22,19 @@ def open_workday():
     # Wait a bit to account for your potato pc🥔
     pyautogui.sleep(2)
 
+# Helper function to check if an image is on the screen, and wait until it is
+def wait_until_loaded(image):
+    while pyautogui.locateCenterOnScreen(image,confidence=0.9) == None:
+        pyautogui.sleep(0.1)
+
+    return pyautogui.locateCenterOnScreen(image,confidence=0.9)
+
+#Helper function to press tab and enter keys
+def tabEnter(count):
+    pyautogui.press('tab', presses=count)
+    pyautogui.press('enter')
+    pyautogui.sleep(0.75)
+
 # Detect if the user isn't signed in to Workday yet
 def check_sign_in():
     if (pyautogui.locateCenterOnScreen('images/workday_sign_in.png',region=(0, 70, 1920, 158), confidence = 0.9) != None):
@@ -33,45 +46,25 @@ def check_sign_in():
         print("Please ensure that you're logged into Workday, hit enter when ready.")
         input()
 
-#Helper function to press tab and enter keys
-def tabEnter(count):
-    pyautogui.press('tab', presses=count)
-    pyautogui.press('enter')
-    pyautogui.sleep(0.75)
-
 def go_to_enter_time_page():
-    pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/menu_hamburger_button.png',region=(0, 72, 113, 130), confidence = 0.9))
-    pyautogui.click()
-    pyautogui.sleep(0.5)
-    # pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/time_button.png',region=(0, 400, 400, 500), confidence = 0.7))
-    # print(pyautogui.locateCenterOnScreen('images/time_button.png',region=(0, 400, 400, 500), confidence = 0.9))
-    # pyautogui.click()
-    # pyautogui.sleep(0.75)
-    # pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/this_week_button.png',region=(605, 280, 920, 330), confidence = 0.7))
-    # pyautogui.click()
-    # pyautogui.sleep(2)
 
-
-    # tabEnter(3) # Click on hamburger button
-    tabEnter(6)
-    pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/time_text.png',confidence=0.9))
+    pyautogui.moveTo(wait_until_loaded('images/menu_hamburger_button.png'))
     pyautogui.click()
-    tabEnter(2)
-    pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/actions_button.png',confidence=0.9))
+    pyautogui.moveTo(wait_until_loaded('images/time_button.png'))
     pyautogui.click()
-    pyautogui.sleep(1)
+    pyautogui.moveTo(wait_until_loaded('images/my_calendar_button.png'))
+    pyautogui.click()
+    pyautogui.moveTo(wait_until_loaded('images/actions_button.png'))
+    pyautogui.click()
+    wait_until_loaded('images/drop_down_menu.png')
     pyautogui.press('down', presses=4)
     pyautogui.press('enter')
     
-    while pyautogui.locateCenterOnScreen('images/quick_add_text.png',confidence=0.9) == None:
-        pyautogui.sleep(0.5)
-
-    print("reached")
-
-    # tabEnter(10)
+    wait_until_loaded('images/quick_add_text.png')
+    tabEnter(3)
 
 secs_between_keys = 0.05
-hours = 8
+hours = str(8)
 
 # This function was supposed to find the day columns, and add the times. 
 # Unfortunately, OpenCV couldn't find the image matches. :(
@@ -95,19 +88,22 @@ hours = 8
     #     pyautogui.sleep(0.5)
 
 def enter_time():
+    pyautogui.press('tab', presses=13)
+    pyautogui.typewrite(hours)
     pyautogui.press('tab')
-    pyautogui.press('enter')
-    # pyautogui.moveTo(pyautogui.findCenterOnScreen('images/actions_button.png',confidence = 0.9))
-    pyautogui.press('tab', presses=10)
-    pyautogui.press('enter')
-    pyautogui.sleep(0.5)
-    pyautogui.press('down', presses=4)
-    pyautogui.sleep(0.5)
-    pyautogui.press('enter')
-    pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/next_button.png',confidence = 0.9))
-    print(pyautogui.locateCenterOnScreen('images/next_button.png',confidence = 0.9))
+    pyautogui.typewrite(hours)
+    pyautogui.press('tab')
+    pyautogui.typewrite(hours)
+    pyautogui.press('tab')
+    pyautogui.typewrite(hours)
+    pyautogui.press('tab')
+    pyautogui.typewrite(hours)
+    pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/orange_ok_button.png',confidence=0.9))
     pyautogui.click()
-    pyautogui.sleep(0.5)
+    pyautogui.moveTo(
+    wait_until_loaded('images/review_button.png'))
+    print('found review button')
+    pyautogui.click()
 
 
 # Function to display mouse position, for testing purposes
@@ -124,7 +120,7 @@ def mouse_position():
         print('\nDone.')
 
 open_workday()
-# check_sign_in()
+check_sign_in()
 go_to_enter_time_page()
-# enter_time()
+enter_time()
 # mouse_position()
