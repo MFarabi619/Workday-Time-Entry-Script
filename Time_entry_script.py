@@ -65,8 +65,12 @@ def enter_time():
     wait_until_loaded('images/review_button.png'))
     pyautogui.click()
 
+def main ():
+    open_workday()
+    check_sign_in()
+    go_to_enter_time_page()
+    enter_time()
 
-open_workday()
-check_sign_in()
-go_to_enter_time_page()
-enter_time()
+# Run the main function if this file is run directly
+if __name__ == "__main__":
+    main()
