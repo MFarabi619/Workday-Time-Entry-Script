@@ -7,7 +7,7 @@ def wait_until_loaded(image):
 
     return pyautogui.locateCenterOnScreen(image,confidence=0.9)
 
-#Helper function to press tab and enter keys
+# Helper function to press tab and enter keys
 def tabEnter(count):
     pyautogui.press('tab', presses=count)
     pyautogui.press('enter')

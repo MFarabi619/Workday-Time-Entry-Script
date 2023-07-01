@@ -23,3 +23,9 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Make code more readable by separating helper functions to a different file.
 - Move the button images to a separate folder and import them into a file. Import from that file into the script.
 - Check if the user has all the dependencies installed, if not then install them.
+
+## Learning Log:
+- Automating browser actions using Selenium Webdriver.
+- Parsing HTML using Selenium Webdriver.
+- Improving robustness of PyAutoGUI scripts by using waiting for image to show up rather than using sleep() function.
+- Choosing a large enough and distinct enough image to be reliably detected by OpenCV. 
