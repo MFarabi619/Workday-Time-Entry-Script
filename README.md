@@ -23,7 +23,7 @@ https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143
 - Improved robustness by waiting until the image is found rather than using the sleep() function, as a webpage could take any amount of time to load.
 - Improved code readability through separation of helper functions to a different file.
 
-## Release v2.0.0 Features:
+## Release v2.0.0 Features and Changelog:
 - Asks the user if they worked a regular work week. If not, then the script will prompt the user for the number of hours worked per day.
   - The hours entry menu also provides the user with the options to undo the last entry, restart from the beginning, or to exit the menu.
 - No need for the user to press enter in the console when signing in. The script will automatically continue when the hamburger icon is found.
