@@ -18,6 +18,9 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Enters hours and clicks the 'Ok' button.
 - Clicks the 'Review' button and ends at the submit page.
 
+
+## Release v2.1.1-hotfix Features and Changelog:
+- Fixed a bug where the script would try to move the browser window even though it was already on the main monitor.
 ## Release v2.1.0 Features and Changelog:
 - Detects if the browser is on the main monitor or not. If not, then moves it to the main monitor automatically.
 
