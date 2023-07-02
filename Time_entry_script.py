@@ -35,7 +35,8 @@ def open_workday():
     URL = 'https://wd5.myworkday.com/ciena/d/home.htmld'
 
     # Open a browser tab with the URL
-    webbrowser.open_new(URL)
+    # webbrowser.open_new(URL)
+    webbrowser.open(URL, new = 1, autoraise=True)
 
     # Wait a bit to account for your potato pc🥔
     pyautogui.sleep(2)
@@ -103,11 +104,11 @@ def enter_time(work_week):
 
 # Main function
 def main ():
-    welcome(work_week)
+    # welcome(work_week)
     open_workday()
-    check_sign_in()
-    go_to_enter_time_page()
-    enter_time(work_week)
+    # check_sign_in()
+    # go_to_enter_time_page()
+    # enter_time(work_week)
 
 # Run the main function if this file is run directly
 if __name__ == "__main__":

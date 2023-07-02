@@ -1,7 +1,5 @@
 # Workday Time Entry Script
 
-https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143-e3bc-4cc1-b2e4-269962adfced
-
 I initially attempted to automate the process of entering hours into the Workday Employee portal using PyAutoGUI, but ran into a variety of issues such as:
 
 - OpenCV failing to detecting small text.
@@ -21,6 +19,7 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Clicks the 'Review' button and ends at the submit page.
 
 ## Release v1.0.0-alpha Features:
+https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143-e3bc-4cc1-b2e4-269962adfced
 - Improved robustness by waiting until the image is found rather than using the sleep() function, as a webpage could take any amount of time to load.
 - Improved code readability through separation of helper functions to a different file.
 
@@ -43,3 +42,4 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Storing values in a dictionary and iterating through them.
 - Manipulating the order of items in a dictionary.
 - Considered using multithreading/multiprocessing to for the sign-in check stage, but decided against it as it would be too complicated for this use case. Used a while loop instead.
+- If there is no browser open, the webbrowser module will open the default browser in the main monitor. If there is a browser open, it will open a new tab in the same browser, with the browser remaining on the monitor screen it was originally in.
