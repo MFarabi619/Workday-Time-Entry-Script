@@ -1,4 +1,3 @@
-
 import pyautogui
 import webbrowser
 from helper_functions import wait_until_loaded, tabEnter, check_user_input, collect_hours
@@ -43,14 +42,22 @@ def open_workday():
 
 # Detect if the user isn't signed in to Workday yet
 def check_sign_in():
-    if (pyautogui.locateCenterOnScreen('images/workday_sign_in.png',region=(0, 70, 1920, 158), confidence = 0.9) != None):
+
+    time_elapsed = 0
+    while (pyautogui.locateCenterOnScreen('images/workday_sign_in.png', confidence=0.9) is None and pyautogui.locateCenterOnScreen('images/menu_hamburger_button.png', confidence=0.9) is None):
+        pyautogui.sleep(0.1)
+        time_elapsed += 1
+        if time_elapsed % 5 == 0:
+            print("Waiting for target image. Is your browser window open and on your main monitor?\n")
+            print("Please be patient if the website is loading. The script will continue a soon as the image is found.\n")
+
+    if pyautogui.locateCenterOnScreen('images/workday_sign_in.png', confidence=0.9) is not None:
+        print("Workday sign in page detected. Signing in...\n")
+        # Wait for browser to autofill credentials
         pyautogui.sleep(0.5)
         pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/workday_sign_in_button.png',region=(805, 710, 1115, 755), confidence = 0.9))
         pyautogui.click()
-
         pyautogui.alert("Please verify your Okta credentials so the script can continue. :)")
-        print("Please ensure that you're logged into Workday, hit enter when you're on the Workday homepage.")
-        input()
 
 def go_to_enter_time_page():
 

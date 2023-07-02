@@ -70,10 +70,9 @@ def wait_until_loaded(image):
     while pyautogui.locateCenterOnScreen(image,confidence=0.9) == None:
         pyautogui.sleep(0.1)
         time_elapsed += 1
-        if time_elapsed%5 == 0:
+        if time_elapsed % 5 == 0:
             print("Waiting for target image. Is your broswer window open and on your main monitor?\n")
             print("Please be patient if the website is loading. The script will continue a soon as the image is found.\n")
-            message_printed = True
     return pyautogui.locateCenterOnScreen(image,confidence=0.9)
 
 #  Press enter after tabbing a certain number of times
