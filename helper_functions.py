@@ -1,4 +1,5 @@
 import pyautogui
+from colorama import Fore, Style
 
 # Check if userInput was valid or not
 def check_user_input(prompt, validInputs):
@@ -21,8 +22,14 @@ def collect_hours(work_week):
         # Check if we've reached the end of the week
         if i == len(days):
             print("These are hours you entered for each day of the week:\n")
-            print(work_week)
-            userInput = check_user_input("Are these hours correct? y/n\n", ["y", "n"])
+
+            # Print the hours entered for each day of the week in a readable format
+            for key, value in work_week.items():
+                formatted_key = f"{Fore.YELLOW}{key}{Style.RESET_ALL}"
+                formatted_value = f"{Fore.GREEN}{value}{Style.RESET_ALL}"
+                print(f"{formatted_key}: {formatted_value}")
+
+            userInput = check_user_input("\nAre these hours correct? y/n\n", ["y", "n"])
             if (userInput == "N" or userInput == "n"):
                 print("No worries. Let's start over.🔃\n")
                 worked_weekend=False

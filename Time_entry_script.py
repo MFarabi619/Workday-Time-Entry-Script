@@ -1,8 +1,7 @@
-import pyautogui
 import webbrowser
-from helper_functions import wait_until_loaded, tabEnter, check_user_input, collect_hours, move_browser_window
+import pyautogui
+from helper_functions import wait_until_loaded, tabEnter, check_user_input, collect_hours
 from images import *
-
 
 # Create a dictionary that stores hours worked for each day of the week
 work_week = {
@@ -108,8 +107,6 @@ def enter_time(work_week):
 def main ():
     welcome(work_week)
     open_workday()
-    # Function commented out due to unrealiability
-    # move_browser_window()
     check_sign_in()
     go_to_enter_time_page()
     enter_time(work_week)
