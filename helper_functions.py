@@ -1,5 +1,6 @@
 import pyautogui
-from colorama import Fore, Style
+from colorama import Fore, Style, Back
+from tabulate import tabulate
 
 # Check if userInput was valid or not
 def check_user_input(prompt, validInputs):
@@ -7,6 +8,39 @@ def check_user_input(prompt, validInputs):
     while userInput not in validInputs:
         userInput = input("Valid inputs are: " + str(validInputs) + "\nPlease enter a valid input: ").lower()
     return userInput
+
+# Only uncommented for testing purposes
+# work_week = {
+#     "Monday": "8",
+#     "Tuesday": "8",
+#     "Wednesday": "8",
+#     "Thursday": "8",
+#     "Friday": "8",
+#     "Saturday": "0",
+#     "Sunday": "0"
+# }
+
+def print_work_week(work_week):
+
+    table_data = []
+    for day, hours in work_week.items():
+        formatted_day = f"{Fore.YELLOW}{day}{Style.RESET_ALL}"
+        formatted_hours = f"{Fore.GREEN}{hours}{Style.RESET_ALL}"
+        table_data.append([formatted_day, formatted_hours])
+
+    table = tabulate(table_data, headers=["Day", "Hours Worked"], tablefmt="grid")
+
+    # Change the row and column borders to blue
+    formatting_chars = ["+", "|", "-", "="]
+    formatted_table = table
+
+    for char in formatting_chars:
+        formatted_table = formatted_table.replace(char, f"{Fore.LIGHTCYAN_EX}{char}{Style.RESET_ALL}")
+
+    formatted_table = formatted_table.replace("Day", f"{Fore.MAGENTA}Day{Style.RESET_ALL}")
+    formatted_table = formatted_table.replace("Hours Worked", f"{Fore.MAGENTA}Hours Worked{Style.RESET_ALL}")
+
+    print(formatted_table)
 
 # Collect the number of hours worked for each day of the week
 def collect_hours(work_week):
@@ -22,13 +56,7 @@ def collect_hours(work_week):
         # Check if we've reached the end of the week
         if i == len(days):
             print("These are hours you entered for each day of the week:\n")
-
-            # Print the hours entered for each day of the week in a readable format
-            for key, value in work_week.items():
-                formatted_key = f"{Fore.YELLOW}{key}{Style.RESET_ALL}"
-                formatted_value = f"{Fore.GREEN}{value}{Style.RESET_ALL}"
-                print(f"{formatted_key}: {formatted_value}")
-
+            print_work_week(work_week)
             userInput = check_user_input("\nAre these hours correct? y/n\n", ["y", "n"])
             if (userInput == "N" or userInput == "n"):
                 print("No worries. Let's start over.🔃\n")
@@ -69,7 +97,7 @@ def collect_hours(work_week):
         
         except ValueError:
             print("Valid inputs are 'u','r','e', and any number between 0-24.\n")
-    # return work_week
+    
 
 # Check if an image is on the screen, and wait until it is
 def wait_until_loaded(image):
