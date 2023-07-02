@@ -147,6 +147,11 @@ def tabEnter(count):
     pyautogui.press('enter')
     pyautogui.sleep(0.75)
 
+# Move to an image and click on it
+def moveToandClick(image):
+    pyautogui.moveTo(wait_until_loaded(image))
+    pyautogui.click()
+
 # Function to display mouse position, for testing purposes
 def mouse_position():
     try:

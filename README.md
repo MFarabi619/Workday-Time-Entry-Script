@@ -23,7 +23,8 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 ### Major Changes:
 - The browser window moving feature has been de-activated due to reliability issues.
   - The function that moves the browser window is still in the helper_functions.py file, but it is not called.
-- After the user inputs their hours, the work week dictionary will be printed vertically instead of horizontally. The weekdays will be yellow and the hours will be green. This is to make it easier for the user to read the dictionary and verify that the hours were entered correctly.
+- After the user inputs their hours, the work week dictionary will be printed vertically in a tabulated format instead of horizontally. The weekdays will be yellow and the hours will be green. This is to make it easier for the user to read the dictionary and verify that the hours were entered correctly.
+- The script contains a helper function to undo 
 
 ### Minor Changes:
 - Images for buttons have been moved into a separate folder.
