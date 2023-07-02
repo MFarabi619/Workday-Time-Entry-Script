@@ -1,19 +1,7 @@
 import pyautogui
 import webbrowser
 from helper_functions import wait_until_loaded, tabEnter, check_user_input, collect_hours, move_browser_window
-workday_sign_in = 'images/workday_sign_in.png'
-workday_sign_in_button = 'images/buttons/workday_sign_in_button.png'
-menu_hamburger_button = 'images/buttons/menu_hamburger_button.png'
-enter_time_text = 'images/enter_time_text.png'
-time_button = 'images/buttons/time_button.png'
-my_calendar_button = 'images/buttons/my_calendar_button.png'
-enter_time_text = 'images/enter_time_text.png'
-actions_button = 'images/buttons/actions_button.png'
-drop_down_menu = 'images/buttons/drop_down_menu.png'
-quick_add_text = 'images/quick_add_text.png'
-next_button = 'images/buttons/next_button.png'
-review_button = 'images/buttons/review_button.png'
-orange_ok_button = 'images/buttons/orange_ok_button.png'
+from images import *
 
 
 # Create a dictionary that stores hours worked for each day of the week
