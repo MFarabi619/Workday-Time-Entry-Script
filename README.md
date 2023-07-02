@@ -24,8 +24,13 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Improved robustness by waiting until the image is found rather than using the sleep() function, as a webpage could take any amount of time to load.
 - Improved code readability through separation of helper functions to a different file.
 
-## Planned Features:
-- Prompt the user for hours worked per day.
+## Release v2.0.0 Features:
+- Asks the user if they worked a regular work week. If not, then the script will prompt the user for the number of hours worked per day.
+    - The hours entry menu also provides the user with the options to undo the last entry, restart from the beginning, or to exit the menu.
+- No need for the user to press enter in the console when signing in. The script will automatically continue when the hamburger icon is found.
+- If the browser is not on the main monitor, the script waits until the browser is moved to the main monitor rather than crashing.
+
+## Planned Features and improvements:
 - Move the button images to a separate folder and import them into a file. Import from that file into the script.
 - Check if the user has all the dependencies installed, if not then install them.
 
@@ -33,4 +38,4 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Automating browser actions using Selenium Webdriver.
 - Parsing HTML using Selenium Webdriver.
 - Improving robustness of PyAutoGUI scripts by using waiting for image to show up rather than using sleep() function.
-- Choosing a large enough and distinct enough image to be reliably detected by OpenCV. 
+- Choosing a large and distinct enough image to be reliably detected by OpenCV. 
