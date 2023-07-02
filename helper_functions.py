@@ -98,7 +98,6 @@ def collect_hours(work_week):
         except ValueError:
             print("Valid inputs are 'u','r','e', and any number between 0-24.\n")
     
-
 # Check if an image is on the screen, and wait until it is
 def wait_until_loaded(image):
     time_elapsed = 0

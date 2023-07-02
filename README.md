@@ -30,6 +30,7 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Images for buttons have been moved into a separate folder.
 - Unused images have been removed.
 - All images are now imported as variables from a separate file.
+- MoveToandClick helper function has been added to improve code readability.
 
 ## Release v2.1.1-hotfix Features and Changelog:
 - Fixed a bug where the script would try to move the browser window even though it was already on the main monitor.

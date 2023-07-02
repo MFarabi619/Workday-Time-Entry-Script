@@ -100,14 +100,20 @@ def enter_time(work_week):
 # Clear the time entry
 def clear_time_entry():
     
-    moveToandClick(cancel_button)
-    moveToandClick(actions_button)
-    wait_until_loaded(drop_down_menu)
-    pyautogui.press('down', presses=2)
-    pyautogui.press('enter')
-    moveToandClick(checkbox_button)
-    moveToandClick(orange_ok_button)
-    print("Time entry cleared!🎉")
+    print("Would you like to clear your time entry?🤔")
+    userInput = check_user_input("Enter 'y' to clear your time entry or 'n' to exit: ", ["y", "n"])
+    if (userInput == "Y" or userInput == "y"):
+        moveToandClick(cancel_button)
+        moveToandClick(actions_button)
+        wait_until_loaded(drop_down_menu)
+        pyautogui.press('down', presses=2)
+        pyautogui.press('enter')
+        moveToandClick(checkbox_button)
+        moveToandClick(orange_ok_button)
+        print("Time entry cleared!🎉")
+    elif (userInput == "N" or userInput == "n"):
+        print("Exiting script.👋")
+        exit()
 
 # Main function
 def main ():
@@ -116,13 +122,7 @@ def main ():
     check_sign_in()
     go_to_enter_time_page()
     enter_time(work_week)
-    print("Would you like to clear your time entry?🤔")
-    userInput = check_user_input("Enter 'y' to clear your time entry or 'n' to exit: ", ["y", "n"])
-    if (userInput == "Y" or userInput == "y"):
-        clear_time_entry()
-    elif (userInput == "N" or userInput == "n"):
-        print("Exiting script.👋")
-        exit()
+    clear_time_entry()
 
 # Run the main function if this file is run directly
 if __name__ == "__main__":
