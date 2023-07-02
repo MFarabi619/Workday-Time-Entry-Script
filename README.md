@@ -24,6 +24,7 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 ## Release v2.0.0 Features and Changelog:
 - Asks the user if they worked a regular work week. If not, then the script will prompt the user for the number of hours worked per day.
   - The hours entry menu also provides the user with the options to undo the last entry, restart from the beginning, or to exit the menu.
+  - Input filtering is implemented to prevent the user from entering invalid values and breaking the script.
 - No need for the user to press enter in the console when signing in. The script will automatically continue when the hamburger icon is found.
 - If the browser is not on the main monitor, the script waits until the browser is moved to the main monitor rather than crashing.
   - The script also prints a message to the console every half second to let the user know that the script is either waiting for the browser to be moved, or for the page to load.
