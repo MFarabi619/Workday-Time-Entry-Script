@@ -77,17 +77,24 @@ def wait_until_loaded(image):
 
 # Detect if browser is on the main monitor, if not then move it to the main monitor
 def move_browser_window():
-    if pyautogui.locateCenterOnScreen('images/browser_window_text.png', confidence=0.7, grayscale=True) == None:
+    if pyautogui.locateCenterOnScreen('images/browser_sign_in_window.png', confidence=0.9) == None and pyautogui.locateCenterOnScreen('images/browser_signed_in_window.png', confidence=0.9) == None:
         pyautogui.keyDown('alt')
         pyautogui.press('tab')
-        try:
-            pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/browser_window_text.png', confidence=0.9, grayscale=True))
-            pyautogui.click()
+        pyautogui.sleep(0.5)
+        
+        if pyautogui.locateCenterOnScreen('images/browser_sign_in_window.png', confidence=0.7) != None:
+            pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/browser_sign_in_window.png',confidence=0.9)) 
+            print("Reaching browser sign in window...")
+        elif pyautogui.locateCenterOnScreen('images/browser_signed_in_window.png', confidence=0.7) != None:
+            pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/browser_signed_in_window.png',confidence=0.9))
+        else: 
+            print("Browser window not detected. Please bring your browser window to the main monitor.")
             pyautogui.keyUp('alt')
-            print("Browser window detected.")
-        except:
-            print("Could not find browser window. Please ensure that your browser window is open and on your main monitor.")
             return 0
+
+        print("Browser window detected.")
+        pyautogui.click()
+        pyautogui.keyUp('alt')
 
     while (pyautogui.locateCenterOnScreen('images/workday_sign_in.png', confidence=0.9) is None and pyautogui.locateCenterOnScreen('images/menu_hamburger_button.png', confidence=0.9) is None):
         pyautogui.keyDown('winleft')

@@ -1,6 +1,19 @@
 import pyautogui
 import webbrowser
 from helper_functions import wait_until_loaded, tabEnter, check_user_input, collect_hours, move_browser_window
+workday_sign_in = 'images/workday_sign_in.png'
+workday_sign_in_button = 'images/buttons/workday_sign_in_button.png'
+menu_hamburger_button = 'images/buttons/menu_hamburger_button.png'
+enter_time_text = 'images/enter_time_text.png'
+time_button = 'images/buttons/time_button.png'
+my_calendar_button = 'images/buttons/my_calendar_button.png'
+enter_time_text = 'images/enter_time_text.png'
+actions_button = 'images/buttons/actions_button.png'
+drop_down_menu = 'images/buttons/drop_down_menu.png'
+quick_add_text = 'images/quick_add_text.png'
+next_button = 'images/buttons/next_button.png'
+review_button = 'images/buttons/review_button.png'
+orange_ok_button = 'images/buttons/orange_ok_button.png'
 
 
 # Create a dictionary that stores hours worked for each day of the week
@@ -35,8 +48,9 @@ def open_workday():
     URL = 'https://wd5.myworkday.com/ciena/d/home.htmld'
 
     # Open a browser tab with the URL
-    # webbrowser.open_new(URL)
-    webbrowser.open(URL, new = 1, autoraise=True)
+    webbrowser.open_new(URL)
+    # webbrowser.open(URL, new = 1, autoraise=True)
+    # webbrowser.get(URL)
 
     # Wait a bit to account for your potato pc🥔
     pyautogui.sleep(2)
@@ -45,37 +59,37 @@ def open_workday():
 def check_sign_in():
 
     time_elapsed = 0
-    while (pyautogui.locateCenterOnScreen('images/workday_sign_in.png', confidence=0.9) is None and pyautogui.locateCenterOnScreen('images/menu_hamburger_button.png', confidence=0.9) is None):
+    while (pyautogui.locateCenterOnScreen(workday_sign_in, confidence=0.9) is None and pyautogui.locateCenterOnScreen(menu_hamburger_button, confidence=0.9) is None):
         pyautogui.sleep(0.1)
         time_elapsed += 1
         if time_elapsed % 5 == 0:
             print("Waiting for target image. Is your browser window open and on your main monitor?\n")
             print("Please be patient if the website is loading. The script will continue a soon as the image is found.\n")
 
-    if pyautogui.locateCenterOnScreen('images/workday_sign_in.png', confidence=0.9) is not None:
+    if pyautogui.locateCenterOnScreen(workday_sign_in, confidence=0.9) is not None:
         print("Workday sign in page detected. Signing in...\n")
         # Wait for browser to autofill credentials
         pyautogui.sleep(0.5)
-        pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/workday_sign_in_button.png',region=(805, 710, 1115, 755), confidence = 0.9))
+        pyautogui.moveTo(pyautogui.locateCenterOnScreen(workday_sign_in_button, confidence = 0.9))
         pyautogui.click()
         pyautogui.alert("Please verify your Okta credentials so the script can continue. :)")
 
 # Navigate to the enter time page
 def go_to_enter_time_page():
 
-    pyautogui.moveTo(wait_until_loaded('images/menu_hamburger_button.png'))
+    pyautogui.moveTo(wait_until_loaded(menu_hamburger_button))
     pyautogui.click()
-    pyautogui.moveTo(wait_until_loaded('images/time_button.png'))
+    pyautogui.moveTo(wait_until_loaded(time_button))
     pyautogui.click()
-    pyautogui.moveTo(wait_until_loaded('images/my_calendar_button.png'))
+    pyautogui.moveTo(wait_until_loaded(my_calendar_button))
     pyautogui.click()
-    pyautogui.moveTo(wait_until_loaded('images/actions_button.png'))
+    pyautogui.moveTo(wait_until_loaded(actions_button))
     pyautogui.click()
-    wait_until_loaded('images/drop_down_menu.png')
+    wait_until_loaded(drop_down_menu)
     pyautogui.press('down', presses=4)
     pyautogui.press('enter')
     
-    wait_until_loaded('images/quick_add_text.png')
+    wait_until_loaded(quick_add_text)
     tabEnter(3)
 
 # Enter time for the week
@@ -94,11 +108,11 @@ def enter_time(work_week):
         pyautogui.typewrite(hours)
 
     # Click the OK button
-    pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/orange_ok_button.png',confidence=0.9))
+    pyautogui.moveTo(pyautogui.locateCenterOnScreen(orange_ok_button,confidence=0.9))
     pyautogui.click()
 
     # Click the review button
-    pyautogui.moveTo(wait_until_loaded('images/review_button.png'))
+    pyautogui.moveTo(wait_until_loaded(review_button))
     pyautogui.click()
     print("Time entry complete!🎉")
 
@@ -106,7 +120,8 @@ def enter_time(work_week):
 def main ():
     welcome(work_week)
     open_workday()
-    move_browser_window()
+    # Function commented out due to unrealiability
+    # move_browser_window()
     check_sign_in()
     go_to_enter_time_page()
     enter_time(work_week)
