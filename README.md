@@ -31,6 +31,7 @@ https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143
   - The script also prints a message to the console every half second to let the user know that the script is either waiting for the browser to be moved, or for the page to load.
 
 ## Planned Features and improvements:
+- Detect if the browser is on the main monitor or not. If not, then move it to the main monitor.
 - Move the button images to a separate folder and import them into a file. Import from that file into the script.
 - Check if the user has all the dependencies installed, if not then install them.
 
