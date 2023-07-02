@@ -26,9 +26,10 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 
 ## Release v2.0.0 Features:
 - Asks the user if they worked a regular work week. If not, then the script will prompt the user for the number of hours worked per day.
-    - The hours entry menu also provides the user with the options to undo the last entry, restart from the beginning, or to exit the menu.
+  - The hours entry menu also provides the user with the options to undo the last entry, restart from the beginning, or to exit the menu.
 - No need for the user to press enter in the console when signing in. The script will automatically continue when the hamburger icon is found.
 - If the browser is not on the main monitor, the script waits until the browser is moved to the main monitor rather than crashing.
+  - The script also prints a message to the console every half second to let the user know that the script is either waiting for the browser to be moved, or for the page to load.
 
 ## Planned Features and improvements:
 - Move the button images to a separate folder and import them into a file. Import from that file into the script.
@@ -38,4 +39,7 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Automating browser actions using Selenium Webdriver.
 - Parsing HTML using Selenium Webdriver.
 - Improving robustness of PyAutoGUI scripts by using waiting for image to show up rather than using sleep() function.
-- Choosing a large and distinct enough image to be reliably detected by OpenCV. 
+- Choosing a large and distinct enough image to be reliably detected by OpenCV.
+- Storing values in a dictionary and iterating through them.
+- Manipulating the order of items in a dictionary.
+- Considered using multithreading/multiprocessing to for the sign-in check stage, but decided against it as it would be too complicated for this use case. Used a while loop instead.

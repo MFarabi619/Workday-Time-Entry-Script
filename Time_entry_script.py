@@ -59,6 +59,7 @@ def check_sign_in():
         pyautogui.click()
         pyautogui.alert("Please verify your Okta credentials so the script can continue. :)")
 
+# Navigate to the enter time page
 def go_to_enter_time_page():
 
     pyautogui.moveTo(wait_until_loaded('images/menu_hamburger_button.png'))
@@ -76,6 +77,7 @@ def go_to_enter_time_page():
     wait_until_loaded('images/quick_add_text.png')
     tabEnter(3)
 
+# Enter time for the week
 def enter_time(work_week):
 
     # Keep tabbing and stop just before the first day of the week
@@ -99,6 +101,7 @@ def enter_time(work_week):
     pyautogui.click()
     print("Time entry complete!🎉")
 
+# Main function
 def main ():
     welcome(work_week)
     open_workday()
