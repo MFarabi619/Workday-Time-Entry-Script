@@ -1,4 +1,7 @@
 # Workday Time Entry Script
+
+https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143-e3bc-4cc1-b2e4-269962adfced
+
 I initially attempted to automate the process of entering hours into the Workday Employee portal using PyAutoGUI, but ran into a variety of issues such as:
 
 - OpenCV failing to detecting small text.
@@ -17,10 +20,12 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Enters hours and clicks the 'Ok' button.
 - Clicks the 'Review' button and ends at the submit page.
 
-## Planned Feautures:
+## Release v1.0.0-alpha Features:
 - Improved robustness by waiting until the image is found rather than using the sleep() function, as a webpage could take any amount of time to load.
+- Improved code readability through separation of helper functions to a different file.
+
+## Planned Features:
 - Prompt the user for hours worked per day.
-- Make code more readable by separating helper functions to a different file.
 - Move the button images to a separate folder and import them into a file. Import from that file into the script.
 - Check if the user has all the dependencies installed, if not then install them.
 
