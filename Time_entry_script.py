@@ -69,30 +69,35 @@ def go_to_enter_time_page():
     wait_until_loaded('images/quick_add_text.png')
     tabEnter(3)
 
-def enter_time():
-    pyautogui.press('tab', presses=13)
-    pyautogui.typewrite(hours)
-    pyautogui.press('tab')
-    pyautogui.typewrite(hours)
-    pyautogui.press('tab')
-    pyautogui.typewrite(hours)
-    pyautogui.press('tab')
-    pyautogui.typewrite(hours)
-    pyautogui.press('tab')
-    pyautogui.typewrite(hours)
+def enter_time(work_week):
+
+    # Keep tabbing and stop just before the first day of the week
+    pyautogui.press('tab', presses=11)
+
+    # Make the dictionary start with Sunday, because that's the first day of the week in Workday
+    first_day = work_week.pop("Sunday")
+    work_week = {**{"Sunday": first_day}, **work_week}
+
+    # Loop through the dictionary and enter the hours for each day, starting with Sunday
+    for day, hours in work_week.items():
+        pyautogui.press('tab')
+        pyautogui.typewrite(hours)
+
+    # Click the OK button
     pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/orange_ok_button.png',confidence=0.9))
     pyautogui.click()
-    pyautogui.moveTo(
-    wait_until_loaded('images/review_button.png'))
+
+    # Click the review button
+    pyautogui.moveTo(wait_until_loaded('images/review_button.png'))
     pyautogui.click()
     print("Time entry complete!🎉")
 
 def main ():
     welcome(work_week)
-    # open_workday()
-    # check_sign_in()
-    # go_to_enter_time_page()
-    # enter_time()
+    open_workday()
+    check_sign_in()
+    go_to_enter_time_page()
+    enter_time(work_week)
 
 # Run the main function if this file is run directly
 if __name__ == "__main__":

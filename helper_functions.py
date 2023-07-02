@@ -68,7 +68,6 @@ def collect_hours(work_week):
 def wait_until_loaded(image):
     while pyautogui.locateCenterOnScreen(image,confidence=0.9) == None:
         pyautogui.sleep(0.1)
-
     return pyautogui.locateCenterOnScreen(image,confidence=0.9)
 
 #  Press enter after tabbing a certain number of times
