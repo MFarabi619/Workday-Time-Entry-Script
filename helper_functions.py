@@ -89,8 +89,8 @@ def move_browser_window():
             print("Could not find browser window. Please ensure that your browser window is open and on your main monitor.")
             return 0
 
-        pyautogui.keyDown('winleft')
     while (pyautogui.locateCenterOnScreen('images/workday_sign_in.png', confidence=0.9) is None and pyautogui.locateCenterOnScreen('images/menu_hamburger_button.png', confidence=0.9) is None):
+        pyautogui.keyDown('winleft')
         pyautogui.press('left')
         print("Moving browser window to main monitor...\n")
         # pyautogui.sleep(0.05)
