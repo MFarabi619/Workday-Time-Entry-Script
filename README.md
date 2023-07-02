@@ -18,10 +18,8 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - Enters hours and clicks the 'Ok' button.
 - Clicks the 'Review' button and ends at the submit page.
 
-## Release v1.0.0-alpha Features:
-https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143-e3bc-4cc1-b2e4-269962adfced
-- Improved robustness by waiting until the image is found rather than using the sleep() function, as a webpage could take any amount of time to load.
-- Improved code readability through separation of helper functions to a different file.
+## Release v2.1.0 Features and Changelog:
+- Detects if the browser is on the main monitor or not. If not, then moves it to the main monitor automatically.
 
 ## Release v2.0.0 Features and Changelog:
 - Asks the user if they worked a regular work week. If not, then the script will prompt the user for the number of hours worked per day.
@@ -29,9 +27,13 @@ https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143
 - No need for the user to press enter in the console when signing in. The script will automatically continue when the hamburger icon is found.
 - If the browser is not on the main monitor, the script waits until the browser is moved to the main monitor rather than crashing.
   - The script also prints a message to the console every half second to let the user know that the script is either waiting for the browser to be moved, or for the page to load.
+## Release v1.0.0-alpha Features:
+https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143-e3bc-4cc1-b2e4-269962adfced
+- Improved robustness by waiting until the image is found rather than using the sleep() function, as a webpage could take any amount of time to load.
+- Improved code readability through separation of helper functions to a different file.
+
 
 ## Planned Features and improvements:
-- Detect if the browser is on the main monitor or not. If not, then move it to the main monitor.
 - Move the button images to a separate folder and import them into a file. Import from that file into the script.
 - Check if the user has all the dependencies installed, if not then install them.
 
@@ -44,4 +46,4 @@ https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143
 - Manipulating the order of items in a dictionary.
 - Considered using multithreading/multiprocessing to for the sign-in check stage, but decided against it as it would be too complicated for this use case. Used a while loop instead.
 - If there is no browser open, the webbrowser module will open the default browser in the main monitor. If there is a browser open, it will open a new tab in the same browser, with the browser remaining on the monitor screen it was originally in.
-- Unfortunately, the PyAutoGUI function keyDown() does not reliably work for more than one key.
+- Unfortunately, the PyAutoGUI function keyDown() does not reliably work for more than one key. I was unable to use the Win+Shift+LeftArrow key combination to move the browser to the main monitor. I had to use Win+LeftArrow to move the browser to the main window, and then Win+UpArrow to maximize the browser.
