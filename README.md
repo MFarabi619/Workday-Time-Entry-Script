@@ -44,3 +44,4 @@ https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/7a8c1143
 - Manipulating the order of items in a dictionary.
 - Considered using multithreading/multiprocessing to for the sign-in check stage, but decided against it as it would be too complicated for this use case. Used a while loop instead.
 - If there is no browser open, the webbrowser module will open the default browser in the main monitor. If there is a browser open, it will open a new tab in the same browser, with the browser remaining on the monitor screen it was originally in.
+- Unfortunately, the PyAutoGUI function keyDown() does not reliably work for more than one key.

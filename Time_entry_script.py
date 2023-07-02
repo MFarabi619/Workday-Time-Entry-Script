@@ -1,6 +1,7 @@
 import pyautogui
 import webbrowser
-from helper_functions import wait_until_loaded, tabEnter, check_user_input, collect_hours
+from helper_functions import wait_until_loaded, tabEnter, check_user_input, collect_hours, move_browser_window
+
 
 # Create a dictionary that stores hours worked for each day of the week
 work_week = {
@@ -17,7 +18,6 @@ work_week = {
 def welcome(work_week):
     print("Welcome to the Workday Time Entry Script main menu!👋\n")
     print("This script will help you enter your time for the week in Workday.📅\n")
-    print("Prior to proceeding, please ensure that you have an instance of your browser open on your main monitor.🖥️\n")
     userInput = check_user_input("Did you work a regular work week? A regular work week is 8 hours Monday-Friday(y/n): ", ["y", "n"])
 
     if (userInput == "Y" or userInput == "y"):
@@ -104,11 +104,12 @@ def enter_time(work_week):
 
 # Main function
 def main ():
-    # welcome(work_week)
+    welcome(work_week)
     open_workday()
-    # check_sign_in()
-    # go_to_enter_time_page()
-    # enter_time(work_week)
+    move_browser_window()
+    check_sign_in()
+    go_to_enter_time_page()
+    enter_time(work_week)
 
 # Run the main function if this file is run directly
 if __name__ == "__main__":

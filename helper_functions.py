@@ -71,9 +71,33 @@ def wait_until_loaded(image):
         pyautogui.sleep(0.1)
         time_elapsed += 1
         if time_elapsed % 5 == 0:
-            print("Waiting for target image. Is your broswer window open and on your main monitor?\n")
+            print("Waiting for target image. Is your browser window open and on your main monitor?\n")
             print("Please be patient if the website is loading. The script will continue a soon as the image is found.\n")
     return pyautogui.locateCenterOnScreen(image,confidence=0.9)
+
+# Detect if browser is on the main monitor, if not then move it to the main monitor
+def move_browser_window():
+    if pyautogui.locateCenterOnScreen('images/browser_window_text.png', confidence=0.7, grayscale=True) == None:
+        pyautogui.keyDown('alt')
+        pyautogui.press('tab')
+        try:
+            pyautogui.moveTo(pyautogui.locateCenterOnScreen('images/browser_window_text.png', confidence=0.9, grayscale=True))
+            pyautogui.click()
+            pyautogui.keyUp('alt')
+            print("Browser window detected.")
+        except:
+            print("Could not find browser window. Please ensure that your browser window is open and on your main monitor.")
+            return 0
+
+        pyautogui.keyDown('winleft')
+    while (pyautogui.locateCenterOnScreen('images/workday_sign_in.png', confidence=0.9) is None and pyautogui.locateCenterOnScreen('images/menu_hamburger_button.png', confidence=0.9) is None):
+        pyautogui.press('left')
+        print("Moving browser window to main monitor...\n")
+        # pyautogui.sleep(0.05)
+    
+    pyautogui.press('up', presses=2)
+    pyautogui.keyUp('winleft')
+    print("Browser window is on main monitor.\n")
 
 #  Press enter after tabbing a certain number of times
 def tabEnter(count):
