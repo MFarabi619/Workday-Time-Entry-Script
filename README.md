@@ -26,7 +26,7 @@ UPDATE: The recent Selenium version (4.10.0) has rendered pretty much every piec
 - The browser window moving feature has been de-activated due to reliability issues.
   - The function that moves the browser window is still in the helper_functions.py file, but it is not called.
 - After the user inputs their hours, the work week dictionary will be printed vertically in a tabulated format instead of horizontally. The weekdays will be yellow and the hours will be green. This is to make it easier for the user to read the dictionary and verify that the hours were entered correctly.
-- Once the review time screen is reached, the user is provided with an option to either submit the hours or to cleat their entire entry and restart. This is in case the user notices that they made a mistake in their hours entry.
+- Once the review time screen is reached, the user is provided with an option to either submit the hours or to clear their entire entry and restart. This is in case the user notices that they made a mistake in their hours entry.
 
 ### Minor Changes:
 - Images for buttons have been moved into a separate folder.
