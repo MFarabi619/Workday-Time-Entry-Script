@@ -1,5 +1,5 @@
 import pyautogui
-from colorama import Fore, Style, Back
+from colorama import Fore, Style, Back, init
 from tabulate import tabulate
 
 # Check if userInput was valid or not
@@ -21,7 +21,10 @@ def check_user_input(prompt, validInputs):
 # }
 
 def print_work_week(work_week):
-
+    
+    # Initialize colorama
+    init()
+    
     table_data = []
     for day, hours in work_week.items():
         formatted_day = f"{Fore.YELLOW}{day}{Style.RESET_ALL}"
