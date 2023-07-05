@@ -2,7 +2,7 @@
 
 https://github.com/MFarabi619/Workday-Time-Entry-Script/assets/54924158/502a9e33-e1c0-4037-a63c-a4df73d4214e
 
-Before running the script, open a terminal with administrator privileges and paste the following: `pip install pyautogui tabulate colorama`
+Before running the script, open a terminal with administrator privileges and paste the following: `pip install pyautogui opencv-python tabulate colorama`
 
 This installs the necessary modules the script requires to run. You only have to do this once, not every time before you run the script. The modules will stay installed on your system. :)
 
